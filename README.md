@@ -1,5 +1,5 @@
 # このリポジトリについて
-![Octopets](https://github.com/Azure-Samples/octopets) リポジトリの内容を SRE Agent でデモするように複製したものです。
+[Octopets](https://github.com/Azure-Samples/octopets) リポジトリの内容を SRE Agent でデモするように複製したものです。
 
 
 # 🐕 Octopets
