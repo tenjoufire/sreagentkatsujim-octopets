@@ -1,0 +1,110 @@
+name: Build and Push Containers
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/build-and-push-containers.yml
+      - backend/**
+      - frontend/**
+      - servicedefaults/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  AZURE_RESOURCE_GROUP: rg-srekatsujim
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image_name: octopets-backend
+            repository: octopets/backend
+            dockerfile: backend/Dockerfile
+            context: .
+            build_args: ''
+          - image_name: octopets-frontend
+            repository: octopets/frontend
+            dockerfile: frontend/Dockerfile
+            context: frontend
+            build_args: |
+              REACT_APP_USE_MOCK_DATA=false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure login with OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Resolve ACR login server
+        id: registry
+        env:
+          ACR_NAME: ${{ vars.AZURE_CONTAINER_REGISTRY_NAME }}
+        run: |
+          set -euo pipefail
+          if [ -z "${ACR_NAME}" ]; then
+            echo "AZURE_CONTAINER_REGISTRY_NAME variable is required." >&2
+            exit 1
+          fi
+
+          login_server=$(az acr show \
+            --name "$ACR_NAME" \
+            --resource-group "$AZURE_RESOURCE_GROUP" \
+            --query loginServer \
+            --output tsv)
+
+          echo "login_server=${login_server}" >> "$GITHUB_OUTPUT"
+
+      - name: Log in to Azure Container Registry
+        env:
+          ACR_NAME: ${{ vars.AZURE_CONTAINER_REGISTRY_NAME }}
+        run: az acr login --name "$ACR_NAME"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Generate image tags
+        id: tags
+        env:
+          LOGIN_SERVER: ${{ steps.registry.outputs.login_server }}
+          REPOSITORY: ${{ matrix.repository }}
+        run: |
+          set -euo pipefail
+          short_sha="${GITHUB_SHA::7}"
+          tags="${LOGIN_SERVER}/${REPOSITORY}:sha-${short_sha}"
+
+          if [ "${GITHUB_REF_NAME}" = "main" ]; then
+            tags="${tags},${LOGIN_SERVER}/${REPOSITORY}:latest"
+          fi
+
+          echo "tags=${tags}" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push ${{ matrix.image_name }}
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          push: true
+          tags: ${{ steps.tags.outputs.tags }}
+          build-args: ${{ matrix.build_args }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Summarize published image
+        env:
+          LOGIN_SERVER: ${{ steps.registry.outputs.login_server }}
+        run: |
+          echo "Published ${LOGIN_SERVER}/${{ matrix.repository }}"
+          echo "Tags: ${{ steps.tags.outputs.tags }}"

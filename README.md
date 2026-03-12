@@ -216,6 +216,32 @@ azd up
 
 ![azd up deploying resources to Azure](media/azdup.gif)
 
+### GitHub Actions for ACR image delivery
+
+This repository includes a GitHub Actions workflow at `.github/workflows/build-and-push-containers.yml` that builds and pushes these two images to Azure Container Registry in the `rg-srekatsujim` resource group:
+
+- `octopets/backend`
+- `octopets/frontend`
+
+The workflow runs on pushes to `main` that touch the frontend, backend, shared service defaults, or the workflow itself. It can also be started manually with `workflow_dispatch`.
+
+Before using the workflow, configure GitHub OIDC and repository settings:
+
+1. Create or reuse a Microsoft Entra application for GitHub Actions federation.
+2. Add a federated credential for this repository and branch or environment.
+3. Assign the `AcrPush` role to that application on the target Azure Container Registry.
+4. Add these GitHub repository secrets:
+  - `AZURE_CLIENT_ID`
+  - `AZURE_TENANT_ID`
+  - `AZURE_SUBSCRIPTION_ID`
+5. Add this GitHub repository variable:
+  - `AZURE_CONTAINER_REGISTRY_NAME`
+
+The workflow resolves the registry login server from Azure, logs in with OIDC, and publishes both images with these tags:
+
+- `sha-<commit>`
+- `latest` on `main`
+
 ## 💼 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
