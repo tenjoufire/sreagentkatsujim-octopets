@@ -30,15 +30,15 @@ const ListingDetails: React.FC = () => {
   }, [id]);
 
   if (loading) {
-    return <div className="loading">Loading listing details...</div>;
+    return <div className="loading">スポット詳細を読み込み中です...</div>;
   }
 
   if (!listing) {
     return (
       <div className="not-found">
-        <h2>Listing Not Found</h2>
-        <p>Sorry, we couldn't find a listing with that ID.</p>
-        <Link to={ROUTES.LISTINGS} className="btn">Back to Listings</Link>
+        <h2>スポットが見つかりません</h2>
+        <p>指定されたIDのスポットは見つかりませんでした。</p>
+        <Link to={ROUTES.LISTINGS} className="btn">一覧へ戻る</Link>
       </div>
     );
   }
@@ -48,7 +48,7 @@ const ListingDetails: React.FC = () => {
       <div className="listing-header">
         <img 
           src={`${process.env.PUBLIC_URL}/images/generic/cat.jpg`} 
-          alt="Cat in a pet-friendly place" 
+          alt="ペット同伴スポットにいる猫" 
           className="listing-header-background"
         />        
         <div className="listing-header-overlay"></div>
@@ -64,7 +64,7 @@ const ListingDetails: React.FC = () => {
             <span>📍</span> {listing.location}
           </div>
           <div className="rating-container">
-            <span>★ {listing.rating.toFixed(1)} <span className="reviews-gray">({listing.reviews.length} reviews)</span></span>
+            <span>★ {listing.rating.toFixed(1)} <span className="reviews-gray">(レビュー {listing.reviews.length}件)</span></span>
           </div>
           
           <div className="hero-contact-info">
@@ -84,14 +84,14 @@ const ListingDetails: React.FC = () => {
               <div className="hero-contact-item">
                 <span className="contact-icon">🌐</span>
                 <a href={listing.contactInfo.website} target="_blank" rel="noopener noreferrer">
-                  Visit Website
+                  公式サイトを見る
                 </a>
               </div>
             )}
           </div>
         </div>
         <div className="listing-actions">
-          <Link to={ROUTES.LISTINGS} className="btn btn-outline">Back to Listings</Link>
+          <Link to={ROUTES.LISTINGS} className="btn btn-outline">一覧へ戻る</Link>
         </div>
       </div>
 
@@ -119,7 +119,7 @@ const ListingDetails: React.FC = () => {
                       <button 
                         className="carousel-control prev" 
                         onClick={() => setCurrentPhotoIndex((currentPhotoIndex - 1 + listing.photos.length) % listing.photos.length)}
-                        aria-label="Previous photo"
+                        aria-label="前の写真へ"
                       >
                         &#8592;
                       </button>
@@ -130,14 +130,14 @@ const ListingDetails: React.FC = () => {
                             className={`carousel-dot ${idx === currentPhotoIndex ? 'active' : ''}`}
                             onClick={() => setCurrentPhotoIndex(idx)}
                             role="button"
-                            aria-label={`Go to photo ${idx + 1}`}
+                            aria-label={`写真${idx + 1}へ移動`}
                           />
                         ))}
                       </div>
                       <button 
                         className="carousel-control next" 
                         onClick={() => setCurrentPhotoIndex((currentPhotoIndex + 1) % listing.photos.length)}
-                        aria-label="Next photo"
+                        aria-label="次の写真へ"
                       >
                         &#8594;
                       </button>
@@ -149,20 +149,20 @@ const ListingDetails: React.FC = () => {
                   <div className="placeholder-icon">
                     {LISTING_TYPES.find((t: ListingType) => t.id === listing.type)?.icon || '🏠'}
                   </div>
-                  <p>Photo gallery would appear here</p>
+                  <p>写真ギャラリーはここに表示されます</p>
                 </div>
               )}
             </div>
             
             <div className="listing-description">
-              <h2>About This Place</h2>
+              <h2>この場所について</h2>
               <p>{listing.description}</p>
             </div>
           </div>
         </div>
 
         <div className="listing-sidebar">          <div className="allowed-pets-section">
-            <h3>Allowed Pets</h3>
+            <h3>同伴できるペット</h3>
             <div className="allowed-pets-pills">                {listing.allowedPets.map((petId, index) => {
                 const pet = PET_TYPES.find(p => p.id === petId);
                 return pet ? (                  <div 
@@ -176,7 +176,7 @@ const ListingDetails: React.FC = () => {
               })}
             </div>
           </div><div className="amenities-sidebar-section">
-            <h3>Amenities</h3>
+            <h3>設備・サービス</h3>
             <div className="amenities-pills">              {listing.amenities.map((amenity, index) => (                <div 
                   key={amenity} 
                   className="amenity-pill"
@@ -188,10 +188,10 @@ const ListingDetails: React.FC = () => {
           </div>
 
           <div className="review-summary-section">
-            <h3>Reviews</h3>
+            <h3>レビュー</h3>
             <div className="rating-summary">
               <div className="rating-stars">★ {listing.rating.toFixed(1)}</div>
-              <div className="review-count">({listing.reviews.length} reviews)</div>
+              <div className="review-count">(レビュー {listing.reviews.length}件)</div>
             </div>
           </div>
         </div>

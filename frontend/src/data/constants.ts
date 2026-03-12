@@ -3,28 +3,28 @@ import { ListingType } from '../types/types';
 
 // Listing types that are supported by the application
 export const LISTING_TYPES: ListingType[] = [
-  { id: "park", name: "Parks", icon: "🌳", description: "Open spaces for pets to run and play" },
-  { id: "cafe", name: "Cafés", icon: "☕", description: "Places to eat and drink with your pet" },
-  { id: "home", name: "Homes", icon: "🏠", description: "Pet-friendly accommodations" },
-  { id: "hotel", name: "Hotels", icon: "🏨", description: "Places to stay overnight with your pet" },
-  { id: "custom", name: "Custom Venues", icon: "🏢", description: "Other pet-friendly establishments" }
+  { id: "park", name: "公園", icon: "🌳", description: "ペットが走って遊べる開放的なスペース" },
+  { id: "cafe", name: "カフェ", icon: "☕", description: "ペットと一緒に飲食を楽しめる場所" },
+  { id: "home", name: "宿泊施設", icon: "🏠", description: "ペット歓迎の宿泊先" },
+  { id: "hotel", name: "ホテル", icon: "🏨", description: "ペットと宿泊できる施設" },
+  { id: "custom", name: "その他の施設", icon: "🏢", description: "そのほかのペットフレンドリーなスポット" }
 ];
 
 // Common amenities that can be selected when adding a new venue
 export const AMENITIES: string[] = [
-  "Water stations",
-  "Pet beds",
-  "Off-leash areas",
-  "Waste stations",
-  "Pet menu/treats",
-  "Pet-sitting services",
-  "Outdoor seating",
-  "Pet play equipment",
-  "Fenced area",
-  "Walking trails",
-  "Bathing facilities",
-  "First aid for pets",
-  "Pet shop/store"
+  "給水スポット",
+  "ペット用ベッド",
+  "ノーリードエリア",
+  "排泄物回収ステーション",
+  "ペット用メニュー・おやつ",
+  "ペットシッターサービス",
+  "屋外席",
+  "ペット用遊具",
+  "フェンス付きエリア",
+  "散歩コース",
+  "グルーミング設備",
+  "ペット向け応急ケア",
+  "ペットショップ"
 ];
 
 // Application routes

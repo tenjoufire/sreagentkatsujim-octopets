@@ -52,16 +52,16 @@ const Listings: React.FC = () => {
   });
 
   if (loading) {
-    return <div className="loading">Loading listings...</div>;
+    return <div className="loading">スポットを読み込み中です...</div>;
   }
 
   return (
     <div className="listings-page">
       <div className="hero-section">
-        <h1>Find pet-friendly venues</h1>
+        <h1>ペット同伴スポットを探す</h1>
         <div className="search-container">          <input
             type="text"
-            placeholder="Search by name, description, or location..."
+            placeholder="施設名、説明、場所で検索..."
             value={searchTerm}
             onChange={(e) => {
               const value = e.target.value;
@@ -74,14 +74,14 @@ const Listings: React.FC = () => {
             className="search-button"
             onClick={() => console.log('Search triggered')}
           >
-            Search
+            検索
           </button>
         </div>
       </div>
 
       <div className="filter-section">
         <div className="filter-controls">          <div className="filter-group">
-            <label htmlFor="pet-type">Pet Type</label>
+            <label htmlFor="pet-type">ペットの種類</label>
             <select
               id="pet-type"
               value={selectedPetType}
@@ -91,7 +91,7 @@ const Listings: React.FC = () => {
                 updateSearchParams('petType', value);
               }}
             >
-              <option value="">All Pets</option>
+              <option value="">すべてのペット</option>
               {PET_TYPES.map((pet: PetType) => (
                 <option key={pet.id} value={pet.id}>
                   {pet.name}
@@ -101,7 +101,7 @@ const Listings: React.FC = () => {
           </div>
 
           <div className="filter-group">
-            <label htmlFor="listing-type">Venue Type</label>
+            <label htmlFor="listing-type">施設タイプ</label>
             <select
               id="listing-type"
               value={selectedListingType}
@@ -110,7 +110,7 @@ const Listings: React.FC = () => {
                 setSelectedListingType(value);
                 updateSearchParams('listingType', value);
               }}
-            >              <option value="">All Types</option>
+            >              <option value="">すべてのタイプ</option>
               {LISTING_TYPES.map((type: ListingType) => (
                 <option key={type.id} value={type.id}>
                   {type.name}
@@ -124,7 +124,7 @@ const Listings: React.FC = () => {
       <div className="listings-container">
         {filteredListings.length === 0 ? (
           <div className="no-results">
-            <p>No listings found matching your criteria.</p>
+            <p>条件に一致するスポットが見つかりませんでした。</p>
             <button
               className="btn btn-secondary"              onClick={() => {
                 setSelectedPetType('');
@@ -133,7 +133,7 @@ const Listings: React.FC = () => {
                 setSearchParams(new URLSearchParams());
               }}
             >
-              Clear Filters
+              条件をクリア
             </button>
           </div>
         ) : (
@@ -147,15 +147,15 @@ const Listings: React.FC = () => {
       <section className="cta-section-container">
         <section className="cta-section">
           <div className="cta-image">
-            <img src={`${process.env.PUBLIC_URL}/images/generic/doggo.jpg`} alt="Dog enjoying a pet-friendly place" />
+            <img src={`${process.env.PUBLIC_URL}/images/generic/doggo.jpg`} alt="ペット同伴スポットを楽しむ犬" />
           </div>
           <div className="cta-content">
             <div className="cta-text">
-              <h2>Have a pet-friendly place to share?</h2>
-              <p>Help other pet owners discover great places for their furry, feathery, or scaly friends.</p>
+              <h2>おすすめのペット同伴スポットを共有しませんか？</h2>
+              <p>あなたの投稿が、ほかの飼い主の新しいお気に入りスポットにつながります。</p>
             </div>
             <div className="hero-buttons">
-              <Link to={ROUTES.ADD_LISTING} className="btn btn-black">Add a listing</Link>
+              <Link to={ROUTES.ADD_LISTING} className="btn btn-black">スポットを追加</Link>
             </div>
           </div>
         </section>

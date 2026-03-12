@@ -18,15 +18,15 @@ const Navbar: React.FC = () => {
                 to={ROUTES.LISTINGS} 
                 className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
               >
-                Listings
+                スポット一覧
               </NavLink>
             </li>
           </ul>
         </div>
         
         <div className="navbar-right">
-          <Link to="#" className="nav-link">Log in</Link>
-          <Link to="#" className="btn btn-primary">Sign up</Link>
+          <Link to="#" className="nav-link">ログイン</Link>
+          <Link to="#" className="btn btn-primary">新規登録</Link>
         </div>
       </div>
     </nav>

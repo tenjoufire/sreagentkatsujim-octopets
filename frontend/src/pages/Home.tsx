@@ -39,10 +39,10 @@ const Home: React.FC = () => {
     <div className="home-page">
       <section className="hero">
         <div className="hero-content">
-          <h1>Find purrfect<br />pet-friendly places</h1>
-          <p>Discover and share amazing spots for your furry, feathery, or scaly friends.</p>
+          <h1>ぴったりの<br />ペット同伴スポットを見つけよう</h1>
+          <p>犬、猫、鳥、小動物など、大切な仲間と楽しめる場所を見つけて共有できます。</p>
           <div className="hero-buttons">
-            <Link to={ROUTES.LISTINGS} className="btn btn-outline">Browse listings</Link>
+            <Link to={ROUTES.LISTINGS} className="btn btn-outline">スポットを見る</Link>
           </div>
         </div>
         <div className="floating-pet-icons-container">
@@ -69,8 +69,8 @@ const Home: React.FC = () => {
       <section className="content">
         <section className="pet-types">
           <div className="section-header">
-            <h2>Find places for your pets</h2>
-            <p>We make finding pet-friendly places easy and fun</p>
+            <h2>ペットに合う場所を探す</h2>
+            <p>ペット同伴で行ける場所探しを、もっと簡単に、もっと楽しく。</p>
           </div>
           <div className="pet-types-grid">
             {PET_TYPES.map(pet => (
@@ -92,103 +92,103 @@ const Home: React.FC = () => {
             {/* Polaroids arranged in a circular fashion around the "Why choose Octopets" section */}
             {/* Top polaroids (12 o'clock position) */}
             <div className="polaroid polaroid-1" style={{ top: '-15%', left: '50%', transform: 'translate(-50%, 0) rotate(-5deg)', animationDelay: '-15s', '--rotate': '-5deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/bunny.jpg`} alt="Bunny" />
-              <p>Hoppy times!</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/bunny.jpg`} alt="元気なウサギ" />
+              <p>ぴょんっと楽しい時間</p>
             </div>
             {/* Top-right polaroids (1-2 o'clock position) */}
             <div className="polaroid polaroid-2" style={{ top: '-15%', right: '22%', transform: 'translate3d(0, 0, 0) rotate(7deg)', animationDelay: '-29s', '--rotate': '7deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog7.jpg`} alt="Dog" />
-              <p>Paws & relax</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog7.jpg`} alt="くつろぐ犬" />
+              <p>のんびり肉球タイム</p>
             </div>
             {/* Right-bottom polaroids (4-5 o'clock position) */}
             <div className="polaroid polaroid-4" style={{ top: '48%', right: '13%', transform: 'translate3d(0, 0, 0) rotate(4deg)', animationDelay: '-33s', '--rotate': '4deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/cat1.jpg`} alt="Cat" />
-              <p>Meow moments</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/cat1.jpg`} alt="くつろぐ猫" />
+              <p>にゃんともいい瞬間</p>
             </div>
             {/* Bottom-right polaroids (5-6 o'clock position) */}
             <div className="polaroid polaroid-5" style={{ bottom: '-10%', right: '22%', transform: 'translate3d(0, 0, 0) rotate(-8deg)', animationDelay: '-21s', '--rotate': '-8deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/hedgehog.jpg`} alt="Hedgehog" />
-              <p>Tiny explorer</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/hedgehog.jpg`} alt="ハリネズミ" />
+              <p>ちいさな冒険家</p>
             </div>
 
             {/* Bottom polaroids (6 o'clock position) */}
             <div className="polaroid polaroid-1" style={{ top: '-15%', left: '40%', transform: 'translate(-50%, 0) rotate(7deg)', animationDelay: '-37s', '--rotate': '6deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog5.jpg`} alt="Dog" />
-              <p>Sunny strolls</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog5.jpg`} alt="散歩中の犬" />
+              <p>ひなたの散歩道</p>
             </div>
             {/* Bottom-left polaroids (7-8 o'clock position) */}
             <div className="polaroid polaroid-2" style={{ bottom: '-10%', left: '20%', transform: 'translate3d(0, 0, 0) rotate(-4deg)', animationDelay: '-25s', '--rotate': '-4deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog3.jpg`} alt="Dog" />
-              <p>Buddies 4ever</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog3.jpg`} alt="仲良しの犬" />
+              <p>ずっと仲良し</p>
             </div>
             {/* Left-bottom polaroids (8-9 o'clock position) */}
             <div className="polaroid polaroid-3" style={{ top: '48%', left: '13%', transform: 'translate3d(0, 0, 0) rotate(9deg)', animationDelay: '-51s', '--rotate': '9deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog10.jpg`} alt="Dog" />
-              <p>Sleepy time!</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog10.jpg`} alt="眠そうな犬" />
+              <p>すやすやタイム</p>
             </div>
             {/* Left polaroids (9 o'clock position) */}
             <div className="polaroid polaroid-4" style={{ top: '8%', left: '12%', transform: 'translate3d(0, 0, 0) rotate(-7deg)', animationDelay: '-19s', '--rotate': '-7deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog6.png`} alt="Dog" />
-              <p>Happy puppy day!</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog6.png`} alt="元気な子犬" />
+              <p>ごきげんな一日</p>
             </div>
             {/* Top-left polaroids (10-11 o'clock position) */}
             <div className="polaroid polaroid-5" style={{ top: '-15%', left: '22%', transform: 'translate3d(0, 0, 0) rotate(5deg)', animationDelay: '-39s', '--rotate': '5deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/cat2.jpg`} alt="Cat" />
-              <p>Window watcher</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/cat2.jpg`} alt="窓辺の猫" />
+              <p>窓辺の見張り番</p>
             </div>
             {/* Inner circle polaroids - offset but not too close to center to avoid feature cards */}
             <div className="polaroid polaroid-1" style={{ top: '-15%', left: '30%', transform: 'translate3d(0, 0, 0) rotate(-3deg)', animationDelay: '-47s', '--rotate': '-3deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/cat3.jpg`} alt="Cat" />
-              <p>Curious kitty</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/cat3.jpg`} alt="好奇心旺盛な猫" />
+              <p>気になるものだらけ</p>
             </div>
             <div className="polaroid polaroid-2" style={{ top: '-19%', right: '31%', transform: 'translate3d(0, 0, 0) rotate(2deg)', animationDelay: '-31s', '--rotate': '2deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog8.jpg`} alt="Dog" />
-              <p>Backyard hangout!</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog8.jpg`} alt="庭で過ごす犬" />
+              <p>庭でひと休み</p>
             </div>
             <div className="polaroid polaroid-3" style={{ bottom: '-12%', right: '30%', transform: 'translate3d(0, 0, 0) rotate(-2deg)', animationDelay: '-27s', '--rotate': '-2deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog4.png`} alt="Dog" />
-              <p>Park adventures</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog4.png`} alt="公園で遊ぶ犬" />
+              <p>公園で大冒険</p>
             </div>            <div className="polaroid polaroid-4" style={{ bottom: '-14%', left: '40%', transform: 'translate3d(0, 0, 0) rotate(3deg)', animationDelay: '-23s', '--rotate': '3deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog-9.jpg`} alt="Dog" />
-              <p>Fall in Seattle</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog-9.jpg`} alt="秋の景色と犬" />
+              <p>秋のおでかけ日和</p>
             </div>
             {/* New polaroids added with deeper positioning */}
             <div className="polaroid polaroid-5" style={{ bottom: '-18%', right: '40%', transform: 'translate3d(0, 0, 0) rotate(-5deg)', animationDelay: '-18s', '--rotate': '-5deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog11.png`} alt="Dog" />
-              <p>Cozy companion</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog11.png`} alt="寄り添う犬" />
+              <p>ぬくもりのおとも</p>
             </div>
             <div className="polaroid polaroid-1" style={{ bottom: '-22%', left: '30%', transform: 'translate3d(0, 0, 0) rotate(4deg)', animationDelay: '-42s', '--rotate': '4deg' } as React.CSSProperties}>
-              <img src={`${process.env.PUBLIC_URL}/images/pets/dog12.jpg`} alt="Dog" />
-              <p>Park explorer</p>
+              <img src={`${process.env.PUBLIC_URL}/images/pets/dog12.jpg`} alt="探索中の犬" />
+              <p>わくわく探索中</p>
             </div>
           </div>
 
           <div className="section-header">
-            <h2>Why choose Octopets?</h2>
-            <p>We make finding pet-friendly places easy and fun</p>
+            <h2>Octopetsを選ぶ理由</h2>
+            <p>ペットと行ける場所探しを、もっと身近で楽しい体験にします。</p>
           </div>
 
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-title">
                 <span className="feature-icon">🔎</span>
-                <h3>Discover</h3>
+                <h3>見つける</h3>
               </div>
-              <p>Find vetted pet-friendly venues recommended by other pet owners</p>
+              <p>ほかの飼い主がおすすめする、安心して使えるペット同伴スポットを探せます。</p>
             </div>
             <div className="feature-card">
               <div className="feature-title">
                 <span className="feature-icon">🤝</span>
-                <h3>Connect</h3>
+                <h3>つながる</h3>
               </div>
-              <p>Share experiences and tips with a community of pet lovers</p>
+              <p>ペット好きのコミュニティと体験談やコツを共有できます。</p>
             </div>
             <div className="feature-card">
               <div className="feature-title">
                 <span className="feature-icon">⭐</span>
-                <h3>Rate & Review</h3>
+                <h3>評価する</h3>
               </div>
-              <p>Help others by rating and reviewing pet-friendly places</p>
+              <p>レビューや評価を通じて、ほかのユーザーの場所選びを助けられます。</p>
             </div>          
             </div>
         </section>        
@@ -196,8 +196,8 @@ const Home: React.FC = () => {
         <section className="venue-types">
 
           <div className="section-header">
-            <h2>Explore venue types</h2>
-            <p>Discover a variety of pet-friendly establishments for every occasion</p>
+            <h2>施設タイプから探す</h2>
+            <p>シーンに合わせて、さまざまなペット同伴施設を見つけられます。</p>
           </div>
 
           <div className="venue-types-grid">
@@ -213,7 +213,7 @@ const Home: React.FC = () => {
                 <div className="venue-info">
                   <h3>{type.name}</h3>
                   <Link to={`${ROUTES.LISTINGS}?listingType=${type.id}`} className="btn btn-small btn-outline">
-                    Find venues
+                    このタイプを見る
                   </Link>
                 </div>
               </div>
@@ -222,12 +222,12 @@ const Home: React.FC = () => {
         </section>        <section className="cta-section-container">
           <section className="cta-section">
             <div className="cta-image">
-              <img src={`${process.env.PUBLIC_URL}${randomPetImage}`} alt="Pet enjoying a pet-friendly place" />
+              <img src={`${process.env.PUBLIC_URL}${randomPetImage}`} alt="ペット同伴スポットを楽しむペット" />
             </div>
             <div className="cta-content">
               <div className="cta-text">
-                <h2>Have a pet-friendly place to share?</h2>
-                <p>Help other pet owners discover great places for their furry, feathery, or scaly friends.</p>
+                <h2>おすすめのペット同伴スポットはありますか？</h2>
+                <p>あなたのおすすめを共有して、ほかの飼い主が素敵な場所を見つける手助けをしましょう。</p>
               </div>
             </div>          </section>
         </section>

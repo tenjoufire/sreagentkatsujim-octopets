@@ -46,7 +46,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
         </div>
         <div className="listing-buttons">
           <Link to={`/listing/${listing.id}`} className="btn btn-small btn-outline">
-            View details
+            詳細を見る
           </Link>
         </div>
       </div>

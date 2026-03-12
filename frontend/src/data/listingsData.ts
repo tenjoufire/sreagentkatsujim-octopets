@@ -4,12 +4,12 @@ import { Listing } from '../types/types';
 const listingsData: Listing[] = [
   {
     id: "1",
-    name: "Pawsome Park",
+    name: "パウサム・パーク",
     type: "park",
     location: "123 Park Avenue, New York, NY",
-    description: "A spacious park with dedicated areas for dogs to run off-leash. Beautiful walking paths and rest areas for owners.",
+    description: "犬がノーリードで走り回れる専用エリアを備えた広々とした公園です。美しい散歩道と飼い主向けの休憩スペースがあります。",
     allowedPets: ["dogs", "cats"],
-    amenities: ["Water fountains", "Waste stations", "Benches", "Shade areas"],
+    amenities: ["給水スポット", "排泄物回収ステーション", "ベンチ", "日よけスペース"],
     photos: ["park1.jpg", "park2.jpg"],
     rating: 4.7,
     reviews: [
@@ -18,7 +18,7 @@ const listingsData: Listing[] = [
         userId: "user1",
         userName: "Alex Johnson",
         rating: 5,
-        comment: "My golden retriever loves this park! Plenty of space to run around.",
+        comment: "うちのゴールデンレトリバーがこの公園をとても気に入っています。走り回れるスペースがたっぷりあります。",
         date: "2025-04-15"
       },
       {
@@ -26,7 +26,7 @@ const listingsData: Listing[] = [
         userId: "user2",
         userName: "Taylor Smith",
         rating: 4,
-        comment: "Clean and well-maintained. Would be perfect with more shade in summer.",
+        comment: "清潔でよく整備されています。夏場にもう少し日陰があるとさらに良いです。",
         date: "2025-04-10"
       }
     ],
@@ -38,12 +38,12 @@ const listingsData: Listing[] = [
   },
   {
     id: "2",
-    name: "Whiskers Cafe",
+    name: "ウィスカーズ・カフェ",
     type: "cafe",
     location: "456 Main Street, Seattle, WA",
-    description: "A cozy cafe with a special menu for pets. Indoor and outdoor seating available with pet-friendly accommodations.",
+    description: "ペット専用メニューがある居心地の良いカフェです。店内席とテラス席の両方を利用できます。",
     allowedPets: ["dogs", "cats", "small_mammals"],
-    amenities: ["Pet menu", "Water bowls", "Pet beds", "Outdoor patio"],
+    amenities: ["ペット用メニュー", "給水ボウル", "ペット用ベッド", "テラス席"],
     photos: ["cafe1.jpg", "cafe2.jpg"],
     rating: 4.5,
     reviews: [
@@ -52,7 +52,7 @@ const listingsData: Listing[] = [
         userId: "user3",
         userName: "Jamie Lee",
         rating: 5,
-        comment: "They have treats for my dog and great coffee for me!",
+        comment: "犬用のおやつも、人向けのおいしいコーヒーもあって大満足です。",
         date: "2025-04-18"
       },
       {
@@ -60,7 +60,7 @@ const listingsData: Listing[] = [
         userId: "user4",
         userName: "Casey Morgan",
         rating: 4,
-        comment: "My cat enjoyed lounging on their special pet beds. Very accommodating staff.",
+        comment: "猫が専用ベッドでくつろいでいました。スタッフの対応もとても親切です。",
         date: "2025-04-05"
       }
     ],
@@ -72,12 +72,12 @@ const listingsData: Listing[] = [
   },
   {
     id: "3",
-    name: "Pet Haven Home",
+    name: "ペット・ヘイブン・ホーム",
     type: "home",
     location: "789 Oak Road, San Francisco, CA",
-    description: "A beautiful vacation home with a fenced yard, pet doors, and all necessities for your furry friends.",
+    description: "フェンス付きの庭やペットドアを備えた、ペット連れにうれしい設備がそろった美しい宿泊施設です。",
     allowedPets: ["dogs", "cats", "birds", "small_mammals"],
-    amenities: ["Fenced yard", "Pet doors", "Pet beds", "Feeding stations", "Pet toys"],
+    amenities: ["フェンス付きの庭", "ペットドア", "ペット用ベッド", "給餌スペース", "ペット用おもちゃ"],
     photos: ["home1.jpg", "home2.jpg"],
     rating: 4.9,
     reviews: [
@@ -86,7 +86,7 @@ const listingsData: Listing[] = [
         userId: "user5",
         userName: "Jordan Riley",
         rating: 5,
-        comment: "Best pet-friendly accommodation we've found! Our dogs loved the yard.",
+        comment: "これまでで一番良かったペット同伴宿です。うちの犬たちは庭をとても気に入っていました。",
         date: "2025-03-28"
       },
       {
@@ -94,7 +94,7 @@ const listingsData: Listing[] = [
         userId: "user6",
         userName: "Riley Chen",
         rating: 5,
-        comment: "Even our parakeet was comfortable here. Thoughtful touches for all types of pets.",
+        comment: "うちのセキセイインコも快適に過ごせました。いろいろなペットへの配慮が行き届いています。",
         date: "2025-03-15"
       }
     ],
@@ -106,12 +106,12 @@ const listingsData: Listing[] = [
   },
   {
     id: "4",
-    name: "Pets & Pillows Hotel",
+    name: "ペッツ＆ピローズ・ホテル",
     type: "hotel",
     location: "101 Sunset Blvd, Los Angeles, CA",
-    description: "Luxury hotel that welcomes pets of all sizes. Special pet services available including walking and grooming.",
+    description: "大小さまざまなペットを歓迎する高級ホテルです。散歩やグルーミングなどの特別サービスも利用できます。",
     allowedPets: ["dogs", "cats", "birds"],
-    amenities: ["Pet spa", "Walking service", "Pet menu", "Pet sitting", "Pet beds"],
+    amenities: ["ペットスパ", "散歩サービス", "ペット用メニュー", "ペットシッター", "ペット用ベッド"],
     photos: ["hotel1.jpg", "hotel2.jpg"],
     rating: 4.8,
     reviews: [
@@ -120,7 +120,7 @@ const listingsData: Listing[] = [
         userId: "user7",
         userName: "Sam Wilson",
         rating: 5,
-        comment: "They treated my dog like royalty! Room service even for pets.",
+        comment: "うちの犬を特別扱いしてくれました。ペット向けのルームサービスまであります。",
         date: "2025-04-02"
       },
       {
@@ -128,7 +128,7 @@ const listingsData: Listing[] = [
         userId: "user8",
         userName: "Jesse Taylor",
         rating: 4.5,
-        comment: "Great amenities for pets, though a bit pricey.",
+        comment: "ペット向け設備はとても充実していますが、少し高めです。",
         date: "2025-03-20"
       }
     ],
@@ -140,12 +140,12 @@ const listingsData: Listing[] = [
   },
   {
     id: "5",
-    name: "Furry Friends Store",
+    name: "ファーリー・フレンズ・ストア",
     type: "custom",
     location: "246 Cherry Lane, Chicago, IL",
-    description: "A pet store with a play area where pets are welcome to try toys and meet other animals.",
+    description: "ペットが自由に遊べるプレイエリア付きのショップです。おもちゃを試したり、ほかの動物と触れ合ったりできます。",
     allowedPets: ["dogs", "cats", "small_mammals", "birds", "other"],
-    amenities: ["Play area", "Treats bar", "Water stations", "Pet events"],
+    amenities: ["プレイエリア", "おやつバー", "給水スポット", "ペット向けイベント"],
     photos: ["store1.jpg", "store2.jpg"],
     rating: 4.6,
     reviews: [
@@ -154,7 +154,7 @@ const listingsData: Listing[] = [
         userId: "user9",
         userName: "Taylor Kim",
         rating: 5,
-        comment: "My ferret loved the play area! Staff was very knowledgeable about exotic pets.",
+        comment: "フェレットがプレイエリアをとても気に入っていました。珍しいペットにも詳しいスタッフがいて安心です。",
         date: "2025-04-12"
       },
       {
@@ -162,7 +162,7 @@ const listingsData: Listing[] = [
         userId: "user10",
         userName: "Alex Rivera",
         rating: 4,
-        comment: "Great selection of products for all types of pets.",
+        comment: "いろいろな種類のペット向け商品がそろっています。",
         date: "2025-04-08"
       }
     ],    contactInfo: {
@@ -173,12 +173,12 @@ const listingsData: Listing[] = [
   },
   {
     id: "6",
-    name: "Mooch's Meow",
+    name: "ムーチズ・ミャオ",
     type: "cafe",
     location: "789 Banana Street, Miami, FL",
-    description: "A unique monkey-themed cafe where you can enjoy your coffee surrounded by banana decor and monkey-themed treats. Perfect for primate enthusiasts and their pets!",
+    description: "バナナの装飾やモンキー風のスイーツに囲まれてコーヒーを楽しめる、個性的なモンキーテーマのカフェです。ユニークな空間が好きな人とペットにぴったりです。",
     allowedPets: ["dogs", "cats", "small_mammals", "other"],
-    amenities: ["Banana treats", "Monkey-themed play area", "Climbing structures", "Tropical atmosphere", "Pet-friendly seating"],
+    amenities: ["バナナ風おやつ", "モンキーテーマの遊び場", "登り木風の遊具", "トロピカルな空間", "ペット同伴席"],
     photos: ["moochs1.jpg", "moochs2.jpg"],
     rating: 5.0,
     reviews: [
@@ -187,7 +187,7 @@ const listingsData: Listing[] = [
         userId: "user11",
         userName: "Charlie Simmons",
         rating: 5,
-        comment: "Such a fun atmosphere! My dog loved the banana-shaped treats and the staff was amazing.",
+        comment: "とても楽しい雰囲気です。犬がバナナ型のおやつを気に入っていて、スタッフも最高でした。",
         date: "2025-04-28"
       },
       {
@@ -195,7 +195,7 @@ const listingsData: Listing[] = [
         userId: "user12",
         userName: "Morgan Patel",
         rating: 5,
-        comment: "The monkey theme is adorable! Great place to bring your pets, they have special accommodations for all types of animals.",
+        comment: "モンキーテーマがとにかくかわいいです。いろいろな動物向けの配慮があって、ペット連れにぴったりです。",
         date: "2025-04-22"
       },
       {
@@ -203,7 +203,7 @@ const listingsData: Listing[] = [
         userId: "user13",
         userName: "Sam Washington",
         rating: 5,
-        comment: "Best cafe experience ever! My cat actually enjoyed the climbing structures, and I loved the monkey-themed lattes!",
+        comment: "過去最高のカフェ体験でした。猫が遊具を気に入っていて、モンキーテーマのラテも最高でした。",
         date: "2025-05-01"
       }
     ],

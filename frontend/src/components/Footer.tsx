@@ -14,22 +14,22 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="footer-links">
-            <Link to={ROUTES.HOME}>Home</Link>
-            <Link to={ROUTES.LISTINGS}>Listings</Link>
-            <Link to={ROUTES.ADD_LISTING}>Add a Listing</Link>
-            <Link to="#">About Us</Link>
-            <Link to="#">Contact</Link>
+            <Link to={ROUTES.HOME}>ホーム</Link>
+            <Link to={ROUTES.LISTINGS}>スポット一覧</Link>
+            <Link to={ROUTES.ADD_LISTING}>スポットを追加</Link>
+            <Link to="#">Octopetsについて</Link>
+            <Link to="#">お問い合わせ</Link>
           </div>
           
           <div className="footer-social">
-            <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Octopets. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Octopets. All rights reserved. 無断転載を禁じます。</p>
         </div>
       </div>
     </footer>
