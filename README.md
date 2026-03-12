@@ -216,25 +216,34 @@ azd up
 
 ![azd up deploying resources to Azure](media/azdup.gif)
 
-### GitHub Actions for ACR image delivery
+### GitHub Actions for Azure Container Apps deployment
 
-This repository includes a GitHub Actions workflow at `.github/workflows/build-and-push-containers.yml` that builds and pushes these two images to Azure Container Registry in the `rg-srekatsujim` resource group:
+This repository includes a GitHub Actions workflow at `.github/workflows/build-and-push-containers.yml` that uses `azure/container-apps-deploy-action` to build the containers, push them to Azure Container Registry, and update the existing Azure Container Apps deployments:
 
 - `octopets/backend`
 - `octopets/frontend`
+
+The workflow updates these Container Apps after the images are published:
+
+- `octopetsapi`
+- `octopetsfe`
 
 The workflow runs on pushes to `main` that touch the frontend, backend, shared service defaults, or the workflow itself. It can also be started manually with `workflow_dispatch`.
 
 Before using the workflow, add these GitHub repository secrets:
 
 1. `AZURE_CONTAINER_REGISTRY`
-2. `AZURE_CONTAINER_REGISTRY_USERNAME`
-3. `AZURE_CONTAINER_REGISTRY_PASSWORD`
+2. `AZURE_CREDENTIALS`
+3. `AZURE_RESOURCE_GROUP`
 
-`AZURE_CONTAINER_REGISTRY` should contain the registry name without the `.azurecr.io` suffix. The workflow converts it to the ACR login server internally, logs in with `docker/login-action`, and publishes both images with these tags:
+`AZURE_CONTAINER_REGISTRY` should contain the registry name without the `.azurecr.io` suffix.
 
-- `sha-<commit>`
-- `latest` on `main`
+- `AZURE_CREDENTIALS` should contain the service principal JSON used by `azure/login`.
+- `AZURE_RESOURCE_GROUP` should contain the resource group that hosts `octopetsapi` and `octopetsfe`.
+
+The workflow builds each image from its Dockerfile, pushes it to ACR with a unique `${{ github.sha }}` tag, and updates the corresponding Container App revision.
+
+For this to work cleanly, the service principal in `AZURE_CREDENTIALS` must be able to push to the target ACR and update the Container Apps in the target resource group.
 
 ## 💼 License
 

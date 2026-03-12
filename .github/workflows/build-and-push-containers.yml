@@ -1,4 +1,4 @@
-name: Build and Push Containers
+name: Deploy Azure Container Apps
 
 on:
   push:
@@ -15,82 +15,43 @@ permissions:
   contents: read
 
 jobs:
-  build-and-push:
+  deploy:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         include:
           - image_name: octopets-backend
+            container_app_name: octopetsapi
             repository: octopets/backend
-            dockerfile: backend/Dockerfile
-            context: .
-            build_args: ''
+            app_source_path: .
+            dockerfile_path: backend/Dockerfile
+            build_arguments: ''
           - image_name: octopets-frontend
+            container_app_name: octopetsfe
             repository: octopets/frontend
-            dockerfile: frontend/Dockerfile
-            context: frontend
-            build_args: |
-              REACT_APP_USE_MOCK_DATA=false
+            app_source_path: frontend
+            dockerfile_path: Dockerfile
+            build_arguments: |
+              "REACT_APP_USE_MOCK_DATA=false"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Resolve ACR login server
-        id: registry
-        env:
-          ACR_NAME: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
-        run: |
-          set -euo pipefail
-          if [ -z "${ACR_NAME}" ]; then
-            echo "AZURE_CONTAINER_REGISTRY secret is required." >&2
-            exit 1
-          fi
-
-          login_server="${ACR_NAME}.azurecr.io"
-          echo "login_server=${login_server}" >> "$GITHUB_OUTPUT"
-
-      - name: Log in to Azure Container Registry
-        uses: docker/login-action@v3
+      - name: Log in to Azure
+        uses: azure/login@v2
         with:
-          registry: ${{ steps.registry.outputs.login_server }}
-          username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
-          password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Generate image tags
-        id: tags
-        env:
-          LOGIN_SERVER: ${{ steps.registry.outputs.login_server }}
-          REPOSITORY: ${{ matrix.repository }}
-        run: |
-          set -euo pipefail
-          short_sha="${GITHUB_SHA::7}"
-          tags="${LOGIN_SERVER}/${REPOSITORY}:sha-${short_sha}"
-
-          if [ "${GITHUB_REF_NAME}" = "main" ]; then
-            tags="${tags},${LOGIN_SERVER}/${REPOSITORY}:latest"
-          fi
-
-          echo "tags=${tags}" >> "$GITHUB_OUTPUT"
-
-      - name: Build and push ${{ matrix.image_name }}
-        uses: docker/build-push-action@v6
+      - name: Build and deploy ${{ matrix.image_name }}
+        uses: azure/container-apps-deploy-action@v1
         with:
-          context: ${{ matrix.context }}
-          file: ${{ matrix.dockerfile }}
-          push: true
-          tags: ${{ steps.tags.outputs.tags }}
-          build-args: ${{ matrix.build_args }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Summarize published image
-        env:
-          LOGIN_SERVER: ${{ steps.registry.outputs.login_server }}
-        run: |
-          echo "Published ${LOGIN_SERVER}/${{ matrix.repository }}"
-          echo "Tags: ${{ steps.tags.outputs.tags }}"
+          appSourcePath: ${{ github.workspace }}/${{ matrix.app_source_path }}
+          dockerfilePath: ${{ matrix.dockerfile_path }}
+          acrName: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
+          containerAppName: ${{ matrix.container_app_name }}
+          resourceGroup: ${{ secrets.AZURE_RESOURCE_GROUP }}
+          imageToBuild: ${{ secrets.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ matrix.repository }}:${{ github.sha }}
+          buildArguments: ${{ matrix.build_arguments }}
+          disableTelemetry: true
