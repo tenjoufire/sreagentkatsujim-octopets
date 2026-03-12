@@ -1,7 +1,7 @@
 FROM node:20-alpine AS build
 
 # Default to true if not provided
-ARG REACT_APP_USE_MOCK_DATA=true
+ARG REACT_APP_USE_MOCK_DATA=false
 ENV REACT_APP_USE_MOCK_DATA=$REACT_APP_USE_MOCK_DATA
 
 WORKDIR /app
