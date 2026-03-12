@@ -48,6 +48,8 @@ public static class ListingEndpoints
         group.MapGet("/{id:int}", async (int id, IListingRepository repository, IConfiguration config) =>
         {
             // Only throw exception or simulate memory issues if ERRORS flag is set to true
+            //console log
+            Console.WriteLine($"Received request for listing ID: {id}");
             AReallyExpensiveOperation();
 
             var listing = await repository.GetByIdAsync(id);
