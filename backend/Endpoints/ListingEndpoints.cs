@@ -50,7 +50,10 @@ public static class ListingEndpoints
             // Only throw exception or simulate memory issues if ERRORS flag is set to true
             //console log
             Console.WriteLine($"Received request for listing ID: {id}");
-            AReallyExpensiveOperation();
+            if (config.GetValue<bool>("ERRORS"))
+            {
+                AReallyExpensiveOperation();
+            }
 
             var listing = await repository.GetByIdAsync(id);
             return listing is null ? Results.NotFound() : Results.Ok(listing);
