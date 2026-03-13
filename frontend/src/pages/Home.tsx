@@ -91,73 +91,74 @@ const Home: React.FC = () => {
           <div className="floating-polaroids-container">
             {/* Polaroids arranged in a circular fashion around the "Why choose Octopets" section */}
             {/* Top polaroids (12 o'clock position) */}
-            <div className="polaroid polaroid-1" style={{ top: '-15%', left: '50%', transform: 'translate(-50%, 0) rotate(-5deg)', animationDelay: '-15s', '--rotate': '-5deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-1" style={{ top: '-18%', left: 'calc(50% - 120px)', transform: 'rotate(-5deg)', animationDelay: '-15s', '--rotate': '-5deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/bunny.jpg`} alt="元気なウサギ" />
               <p>ぴょんっと楽しい時間</p>
             </div>
             {/* Top-right polaroids (1-2 o'clock position) */}
-            <div className="polaroid polaroid-2" style={{ top: '-15%', right: '22%', transform: 'translate3d(0, 0, 0) rotate(7deg)', animationDelay: '-29s', '--rotate': '7deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-2" style={{ top: '-6%', right: '18%', transform: 'rotate(7deg)', animationDelay: '-29s', '--rotate': '7deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog7.jpg`} alt="くつろぐ犬" />
               <p>のんびり肉球タイム</p>
             </div>
             {/* Right-bottom polaroids (4-5 o'clock position) */}
-            <div className="polaroid polaroid-4" style={{ top: '48%', right: '13%', transform: 'translate3d(0, 0, 0) rotate(4deg)', animationDelay: '-33s', '--rotate': '4deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-4" style={{ top: '19%', right: '4%', transform: 'rotate(4deg)', animationDelay: '-33s', '--rotate': '4deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/cat1.jpg`} alt="くつろぐ猫" />
               <p>にゃんともいい瞬間</p>
             </div>
             {/* Bottom-right polaroids (5-6 o'clock position) */}
-            <div className="polaroid polaroid-5" style={{ bottom: '-10%', right: '22%', transform: 'translate3d(0, 0, 0) rotate(-8deg)', animationDelay: '-21s', '--rotate': '-8deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-5" style={{ top: '49%', right: '8%', transform: 'rotate(-8deg)', animationDelay: '-21s', '--rotate': '-8deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/hedgehog.jpg`} alt="ハリネズミ" />
               <p>ちいさな冒険家</p>
             </div>
 
             {/* Bottom polaroids (6 o'clock position) */}
-            <div className="polaroid polaroid-1" style={{ top: '-15%', left: '40%', transform: 'translate(-50%, 0) rotate(7deg)', animationDelay: '-37s', '--rotate': '6deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-1" style={{ bottom: '-6%', right: '18%', transform: 'rotate(6deg)', animationDelay: '-37s', '--rotate': '6deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog5.jpg`} alt="散歩中の犬" />
               <p>ひなたの散歩道</p>
             </div>
             {/* Bottom-left polaroids (7-8 o'clock position) */}
-            <div className="polaroid polaroid-2" style={{ bottom: '-10%', left: '20%', transform: 'translate3d(0, 0, 0) rotate(-4deg)', animationDelay: '-25s', '--rotate': '-4deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-2" style={{ bottom: '-18%', left: 'calc(50% - 120px)', transform: 'rotate(-4deg)', animationDelay: '-25s', '--rotate': '-4deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog3.jpg`} alt="仲良しの犬" />
               <p>ずっと仲良し</p>
             </div>
             {/* Left-bottom polaroids (8-9 o'clock position) */}
-            <div className="polaroid polaroid-3" style={{ top: '48%', left: '13%', transform: 'translate3d(0, 0, 0) rotate(9deg)', animationDelay: '-51s', '--rotate': '9deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-3" style={{ bottom: '-8%', left: '18%', transform: 'rotate(9deg)', animationDelay: '-51s', '--rotate': '9deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog10.jpg`} alt="眠そうな犬" />
               <p>すやすやタイム</p>
             </div>
             {/* Left polaroids (9 o'clock position) */}
-            <div className="polaroid polaroid-4" style={{ top: '8%', left: '12%', transform: 'translate3d(0, 0, 0) rotate(-7deg)', animationDelay: '-19s', '--rotate': '-7deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-4" style={{ top: '49%', left: '8%', transform: 'rotate(-7deg)', animationDelay: '-19s', '--rotate': '-7deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog6.png`} alt="元気な子犬" />
               <p>ごきげんな一日</p>
             </div>
             {/* Top-left polaroids (10-11 o'clock position) */}
-            <div className="polaroid polaroid-5" style={{ top: '-15%', left: '22%', transform: 'translate3d(0, 0, 0) rotate(5deg)', animationDelay: '-39s', '--rotate': '5deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-5" style={{ top: '19%', left: '4%', transform: 'rotate(5deg)', animationDelay: '-39s', '--rotate': '5deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/cat2.jpg`} alt="窓辺の猫" />
               <p>窓辺の見張り番</p>
             </div>
             {/* Inner circle polaroids - offset but not too close to center to avoid feature cards */}
-            <div className="polaroid polaroid-1" style={{ top: '-15%', left: '30%', transform: 'translate3d(0, 0, 0) rotate(-3deg)', animationDelay: '-47s', '--rotate': '-3deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-1" style={{ top: '-6%', left: '18%', transform: 'rotate(-3deg)', animationDelay: '-47s', '--rotate': '-3deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/cat3.jpg`} alt="好奇心旺盛な猫" />
               <p>気になるものだらけ</p>
             </div>
-            <div className="polaroid polaroid-2" style={{ top: '-19%', right: '31%', transform: 'translate3d(0, 0, 0) rotate(2deg)', animationDelay: '-31s', '--rotate': '2deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-2" style={{ top: '8%', left: '28%', transform: 'rotate(2deg)', animationDelay: '-31s', '--rotate': '2deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog8.jpg`} alt="庭で過ごす犬" />
               <p>庭でひと休み</p>
             </div>
-            <div className="polaroid polaroid-3" style={{ bottom: '-12%', right: '30%', transform: 'translate3d(0, 0, 0) rotate(-2deg)', animationDelay: '-27s', '--rotate': '-2deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-3" style={{ top: '8%', right: '28%', transform: 'rotate(-2deg)', animationDelay: '-27s', '--rotate': '-2deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog4.png`} alt="公園で遊ぶ犬" />
               <p>公園で大冒険</p>
-            </div>            <div className="polaroid polaroid-4" style={{ bottom: '-14%', left: '40%', transform: 'translate3d(0, 0, 0) rotate(3deg)', animationDelay: '-23s', '--rotate': '3deg' } as React.CSSProperties}>
+            </div>
+            <div className="polaroid polaroid-4" style={{ bottom: '11%', right: '28%', transform: 'rotate(3deg)', animationDelay: '-23s', '--rotate': '3deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog-9.jpg`} alt="秋の景色と犬" />
               <p>秋のおでかけ日和</p>
             </div>
             {/* New polaroids added with deeper positioning */}
-            <div className="polaroid polaroid-5" style={{ bottom: '-18%', right: '40%', transform: 'translate3d(0, 0, 0) rotate(-5deg)', animationDelay: '-18s', '--rotate': '-5deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-5" style={{ bottom: '4%', left: '37%', transform: 'rotate(-5deg)', animationDelay: '-18s', '--rotate': '-5deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog11.png`} alt="寄り添う犬" />
               <p>ぬくもりのおとも</p>
             </div>
-            <div className="polaroid polaroid-1" style={{ bottom: '-22%', left: '30%', transform: 'translate3d(0, 0, 0) rotate(4deg)', animationDelay: '-42s', '--rotate': '4deg' } as React.CSSProperties}>
+            <div className="polaroid polaroid-1" style={{ bottom: '12%', left: '26%', transform: 'rotate(4deg)', animationDelay: '-42s', '--rotate': '4deg' } as React.CSSProperties}>
               <img src={`${process.env.PUBLIC_URL}/images/pets/dog12.jpg`} alt="探索中の犬" />
               <p>わくわく探索中</p>
             </div>
